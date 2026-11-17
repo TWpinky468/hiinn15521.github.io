@@ -599,4 +599,98 @@ body {
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
 }
+/* Draggable artwork images */
 
+.detail-hero-image.can-pan {
+    cursor: grab;
+}
+
+.detail-hero-image.can-pan.dragging {
+    cursor: grabbing;
+}
+
+.detail-hero-image.can-pan img {
+    object-fit: cover;
+    object-position: 50% 50%;
+    transform: none;
+    transition: none;
+    user-select: none;
+}
+
+.detail-hero-image.can-pan:hover img {
+    transform: none;
+}
+/* Portrait artwork display */
+
+.detail-hero-image.portrait-image {
+    aspect-ratio: auto;
+    height: min(78vh, 900px);
+    background: #151719;
+}
+
+.detail-hero-image.portrait-image img {
+    object-fit: contain;
+    object-position: center;
+}
+
+/* Portrait gallery */
+
+.detail-gallery-image.portrait-image {
+    aspect-ratio: 3 / 4;
+    background: #151719;
+}
+
+.detail-gallery-image.portrait-image img {
+    object-fit: contain;
+    object-position: center;
+}
+
+/* Mobile layout */
+
+@media (max-width: 650px) {
+    .detail-hero-image.portrait-image {
+        height: min(70vh, 650px);
+    }
+}
+/* ==========================================
+   Portrait Artwork Display
+   ========================================== */
+
+/* 人像素描主圖片 */
+
+.detail-hero-image.portrait-image {
+    aspect-ratio: auto;
+    height: min(78vh, 900px);
+    background: #151719;
+}
+
+.detail-hero-image.portrait-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+/* 人像素描畫廊 */
+
+.detail-gallery-image.portrait-image {
+    aspect-ratio: 3 / 4;
+    background: #151719;
+}
+
+.detail-gallery-image.portrait-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+/* 手機版 */
+
+@media (max-width: 650px) {
+
+    .detail-hero-image.portrait-image {
+        height: min(70vh, 650px);
+    }
+
+}

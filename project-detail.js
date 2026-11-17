@@ -87,6 +87,107 @@ function pictureButton(source, name, language, className) {
 
     return button;
 }
+function enableDragPan(button) {
+    const image = button.querySelector("img");
+    if (!image) return;
+
+    let dragging = false;
+    let moved = false;
+
+    let startX = 0;
+    let startY = 0;
+
+    let positionX = 50;
+    let positionY = 50;
+
+    let initialX = 50;
+    let initialY = 50;
+
+    image.draggable = false;
+    button.classList.add("can-pan");
+
+    const clamp = value => Math.max(0, Math.min(100, value));
+
+    button.addEventListener("pointerdown", event => {
+        if (
+            event.pointerType !== "mouse" ||
+            event.button !== 0 ||
+            !image.naturalWidth
+        ) {
+            return;
+        }
+
+        dragging = true;
+        moved = false;
+
+        startX = event.clientX;
+        startY = event.clientY;
+
+        initialX = positionX;
+        initialY = positionY;
+
+        button.classList.add("dragging");
+        button.setPointerCapture(event.pointerId);
+    });
+
+    button.addEventListener("pointermove", event => {
+        if (!dragging) return;
+
+        const deltaX = event.clientX - startX;
+        const deltaY = event.clientY - startY;
+
+        if (
+            Math.abs(deltaX) > 3 ||
+            Math.abs(deltaY) > 3
+        ) {
+            moved = true;
+        }
+
+        const rect = button.getBoundingClientRect();
+
+        const scale = Math.max(
+            rect.width / image.naturalWidth,
+            rect.height / image.naturalHeight
+        );
+
+        const overflowX = Math.max(
+            0,
+            image.naturalWidth * scale - rect.width
+        );
+
+        const overflowY = Math.max(
+            0,
+            image.naturalHeight * scale - rect.height
+        );
+
+        positionX = overflowX > 0
+            ? clamp(initialX - deltaX / overflowX * 100)
+            : 50;
+
+        positionY = overflowY > 0
+            ? clamp(initialY - deltaY / overflowY * 100)
+            : 50;
+
+        image.style.objectPosition =
+            `${positionX}% ${positionY}%`;
+    });
+
+    const stopDragging = () => {
+        dragging = false;
+        button.classList.remove("dragging");
+    };
+
+    button.addEventListener("pointerup", stopDragging);
+    button.addEventListener("pointercancel", stopDragging);
+
+    button.addEventListener("click", event => {
+        if (moved) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            moved = false;
+        }
+    }, true);
+}
 
 function renderProjectDetail() {
     if (!detailRoot) return;
@@ -116,25 +217,24 @@ function renderProjectDetail() {
     head.appendChild(tags);
     detailRoot.appendChild(head);
 
-    const hero = pictureButton(project.image, name, language, "detail-hero-image");
+    // Create main project image
+    const hero = pictureButton(
+        project.image,
+        name,
+        language,
+        "detail-hero-image"
+    );
+
+    // Portrait artwork layout
+    if (
+        project.display === "portrait" ||
+        project.id === "portrait-sketches"
+    ) {
+        hero.classList.add("portrait-image");
+    }
+
+    // Add the image to the page
     detailRoot.appendChild(hero);
-
-    const info = element("div", "detail-info");
-    const overview = element("section", "detail-info-section");
-    overview.appendChild(element("p", "section-number", "01 / OVERVIEW"));
-    overview.appendChild(element("h2", "detail-section-title", labels.overview));
-    overview.appendChild(element("p", "detail-copy", translated(project.description, language)));
-    info.appendChild(overview);
-
-    const highlights = element("section", "detail-info-section");
-    highlights.appendChild(element("p", "section-number", "02 / BREAKDOWN"));
-    highlights.appendChild(element("h2", "detail-section-title", labels.highlights));
-    const list = element("ul", "detail-highlights");
-    const items = project.highlights?.[language] || project.highlights?.zh || [];
-    items.forEach(item => list.appendChild(element("li", "", item)));
-    highlights.appendChild(list);
-    info.appendChild(highlights);
-    detailRoot.appendChild(info);
 
     // Additional images form a gallery. This also works for project collections.
     const galleryPaths = Array.isArray(project.gallery) ? project.gallery : [];
@@ -148,7 +248,22 @@ function renderProjectDetail() {
             const caption = typeof path === "string"
                 ? `${name} — ${index + 1}`
                 : translated(path.caption, language) || `${name} — ${index + 1}`;
-            grid.appendChild(pictureButton(source, caption, language, "detail-gallery-image"));
+            const galleryButton = pictureButton(
+                source,
+                caption,
+                language,
+                "detail-gallery-image"
+            );
+
+            // 人像素描畫廊使用直式圖片
+            if (
+                project.display === "portrait" ||
+                project.id === "portrait-sketches"
+            ) {
+                galleryButton.classList.add("portrait-image");
+            }
+
+            grid.appendChild(galleryButton);
         });
         gallery.appendChild(grid);
         detailRoot.appendChild(gallery);
