@@ -1,28 +1,31 @@
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yi Ning Huang — Game Development, 3D Art and Animation Portfolio">
     <title>Yi Ning Huang | Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script src="projects.js" defer></script>
     <script src="script.js" defer></script>
 </head>
+
 <body>
     <header class="navbar">
         <a href="#home" class="logo">YNH.</a>
 
-        <nav>
+        <nav aria-label="Main navigation">
             <a href="#about" data-i18n="navAbout">關於我</a>
             <a href="#projects" data-i18n="navProjects">作品</a>
             <a href="#skills" data-i18n="navSkills">技能</a>
             <a href="#contact" data-i18n="navContact">聯絡</a>
         </nav>
 
-        <div class="languages">
-            <button data-lang="zh" class="active">繁中</button>
-            <button data-lang="en">EN</button>
-            <button data-lang="ja">日本語</button>
+        <div class="languages" role="group" aria-label="Website language">
+            <button type="button" data-lang="zh" class="active">繁中</button>
+            <button type="button" data-lang="en">EN</button>
+            <button type="button" data-lang="ja">日本語</button>
         </div>
     </header>
 
@@ -37,6 +40,7 @@
             <a href="#projects" class="hero-button" data-i18n="viewWorks">
                 探索作品
             </a>
+            <span class="hero-index">SELECTED PROJECTS &nbsp; / &nbsp; PORTFOLIO</span>
         </section>
 
         <section id="about" class="section">
@@ -50,28 +54,47 @@
         </section>
 
         <section id="projects" class="section">
+
             <p class="section-number">02 / PROJECTS</p>
-            <h2 data-i18n="projectsTitle">精選作品</h2>
 
-            <div class="project-grid">
-                <article class="project-card">
-                    <div class="project-image">01</div>
-                    <h3>Character Combat Animation</h3>
-                    <p>Blender / Animation / Rigging</p>
-                </article>
+            <h2 data-i18n="projectsTitle">作品總覽</h2>
 
-                <article class="project-card">
-                    <div class="project-image">02</div>
-                    <h3>3D Boss Battle</h3>
-                    <p>Unity / C# / Game Development</p>
-                </article>
+            <p class="projects-intro" data-i18n="projectsIntro">
+                探索我的遊戲開發、3D 建模、角色動畫與美術創作。
+            </p>
 
-                <article class="project-card">
-                    <div class="project-image">03</div>
-                    <h3>Tavern Simulator</h3>
-                    <p>Unity / C# / Gameplay Systems</p>
-                </article>
+            <div class="project-filters">
+                <button type="button" class="filter-btn active" data-filter="all" data-i18n="filterAll">
+                    全部作品
+                </button>
+
+                <button type="button" class="filter-btn" data-filter="game" data-i18n="filterGame">
+                    遊戲開發
+                </button>
+
+                <button type="button" class="filter-btn" data-filter="props" data-i18n="filterProps">
+                    3D 建模
+                </button>
+
+                <button type="button" class="filter-btn" data-filter="creature" data-i18n="filterCreature">
+                    角色與生物
+                </button>
+
+                <button type="button" class="filter-btn" data-filter="environment" data-i18n="filterEnvironment">
+                    場景建模
+                </button>
+
+                <button type="button" class="filter-btn" data-filter="animation" data-i18n="filterAnimation">
+                    動畫
+                </button>
+
+                <button type="button" class="filter-btn" data-filter="drawing" data-i18n="filterDrawing">
+                    2D 美術
+                </button>
             </div>
+
+            <div id="project-container" class="project-grid" aria-live="polite"></div>
+
         </section>
 
         <section id="skills" class="section">
@@ -96,4 +119,5 @@
         © 2026 YI NING HUANG
     </footer>
 </body>
+
 </html>

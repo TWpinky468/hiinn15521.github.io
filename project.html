@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Project detail — Yi Ning Huang Portfolio">
+    <title>Project | Yi Ning Huang</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="projects.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="project-detail.js" defer></script>
+</head>
+
+<body>
+    <header class="navbar">
+        <a href="index.html#home" class="logo">YNH.</a>
+        <nav aria-label="Main navigation">
+            <a href="index.html#about" data-i18n="navAbout">關於我</a>
+            <a href="index.html#projects" data-i18n="navProjects">作品</a>
+            <a href="index.html#skills" data-i18n="navSkills">技能</a>
+            <a href="index.html#contact" data-i18n="navContact">聯絡</a>
+        </nav>
+        <div class="languages" role="group" aria-label="Website language">
+            <button type="button" data-lang="zh" class="active">繁中</button>
+            <button type="button" data-lang="en">EN</button>
+            <button type="button" data-lang="ja">日本語</button>
+        </div>
+    </header>
+
+    <main id="project-detail" class="detail-layout" aria-live="polite">
+        <p class="section-number">LOADING PROJECT / YNH.</p>
+    </main>
+
+    <footer>© 2026 YI NING HUANG</footer>
+
+    <dialog id="image-lightbox" class="image-lightbox" aria-label="Image preview">
+        <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close">×</button>
+        <img id="lightbox-image" alt="">
+        <p id="lightbox-caption"></p>
+    </dialog>
+</body>
+
+</html>
