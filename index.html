@@ -5,68 +5,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yi Ning Huang | Portfolio</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            background: #101113;
-            color: #f0f0ee;
-            font-family: Arial, sans-serif;
-        }
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 24px;
-        }
-
-        h1 {
-            font-size: clamp(42px, 8vw, 100px);
-            font-weight: 600;
-            letter-spacing: 5px;
-            margin: 20px 0;
-        }
-
-        .subtitle {
-            color: #a9b8c6;
-            font-size: 14px;
-            letter-spacing: 3px;
-        }
-
-        .line {
-            width: 80px;
-            height: 1px;
-            background: #a9b8c6;
-            margin: 30px 0;
-        }
-
-        .description {
-            max-width: 600px;
-            color: #b0b7be;
-            line-height: 1.8;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <section class="hero">
-        <p class="subtitle">
-            GAME DEVELOPMENT / 3D ART / ANIMATION
-        </p>
+    <header class="navbar">
+        <a href="#home" class="logo">YNH.</a>
 
-        <h1>YI NING HUANG</h1>
+        <nav>
+            <a href="#about" data-i18n="navAbout">關於我</a>
+            <a href="#projects" data-i18n="navProjects">作品</a>
+            <a href="#skills" data-i18n="navSkills">技能</a>
+            <a href="#contact" data-i18n="navContact">聯絡</a>
+        </nav>
 
-        <div class="line"></div>
+        <div class="languages">
+            <button data-lang="zh" class="active">繁中</button>
+            <button data-lang="en">EN</button>
+            <button data-lang="ja">日本語</button>
+        </div>
+    </header>
 
-        <p class="description">
-            Personal Portfolio — 2026
-        </p>
-    </section>
+    <main>
+        <section id="home" class="hero">
+            <p class="eyebrow">GAME DEVELOPMENT / 3D ART / ANIMATION</p>
+            <h1>YI NING HUANG</h1>
+            <div class="hero-line"></div>
+            <p class="hero-description" data-i18n="heroText">
+                從遊戲開發到三維藝術，探索互動世界的無限可能。
+            </p>
+            <a href="#projects" class="hero-button" data-i18n="viewWorks">
+                探索作品
+            </a>
+        </section>
+
+        <section id="about" class="section">
+            <p class="section-number">01 / ABOUT</p>
+            <h2 data-i18n="aboutTitle">關於我</h2>
+            <p class="content" data-i18n="aboutText">
+                你好，我是黃依甯，目前就讀於實踐大學資訊與模擬設計學系。
+                我對遊戲開發、3D 建模與角色動畫充滿熱情，
+                希望未來能前往日本，參與專業遊戲開發。
+            </p>
+        </section>
+
+        <section id="projects" class="section">
+            <p class="section-number">02 / PROJECTS</p>
+            <h2 data-i18n="projectsTitle">精選作品</h2>
+
+            <div class="project-grid">
+                <article class="project-card">
+                    <div class="project-image">01</div>
+                    <h3>Character Combat Animation</h3>
+                    <p>Blender / Animation / Rigging</p>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-image">02</div>
+                    <h3>3D Boss Battle</h3>
+                    <p>Unity / C# / Game Development</p>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-image">03</div>
+                    <h3>Tavern Simulator</h3>
+                    <p>Unity / C# / Gameplay Systems</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <p class="section-number">03 / SKILLS</p>
+            <h2 data-i18n="skillsTitle">專業技能</h2>
+            <p class="content">
+                Unity · C# · Blender · Maya · ZBrush ·
+                Substance Painter · Photoshop
+            </p>
+        </section>
+
+        <section id="contact" class="section">
+            <p class="section-number">04 / CONTACT</p>
+            <h2 data-i18n="contactTitle">聯絡我</h2>
+            <p class="content" data-i18n="contactText">
+                歡迎與我交流遊戲開發、3D 藝術及合作機會。
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 YI NING HUANG
+    </footer>
 </body>
 </html>
