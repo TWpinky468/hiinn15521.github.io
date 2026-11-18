@@ -321,6 +321,7 @@ function renderProjects() {
         );
 
 
+
         // ----------------------------------
         // Add Card to Website
         // ----------------------------------
@@ -399,3 +400,80 @@ try {
 setLanguage(
     translations[savedLanguage] ? savedLanguage : "zh"
 );
+/* ==========================================
+   Scroll Reveal Animation
+   ========================================== */
+
+function initializeScrollReveal() {
+
+    const revealSelector = [
+        ".section-number",
+        ".section h2",
+        ".projects-intro",
+        ".content",
+        ".project-card",
+        ".detail-title",
+        ".detail-lead",
+        ".detail-info-section",
+        ".detail-gallery-section"
+    ].join(", ");
+
+    const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("is-visible");
+
+                    observer.unobserve(entry.target);
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.1,
+            rootMargin: "0px 0px -40px 0px"
+        }
+    );
+
+    function registerRevealElements() {
+
+        const elements = document.querySelectorAll(
+            revealSelector
+        );
+
+        elements.forEach(element => {
+
+            if (element.classList.contains("scroll-reveal")) {
+                return;
+            }
+
+            element.classList.add("scroll-reveal");
+
+            revealObserver.observe(element);
+
+        });
+
+    }
+
+    // Watch dynamically generated project cards
+    const mutationObserver = new MutationObserver(() => {
+        registerRevealElements();
+    });
+
+    mutationObserver.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+
+        registerRevealElements();
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeScrollReveal);
+} else {
+    initializeScrollReveal();
+}
