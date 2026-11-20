@@ -143,6 +143,15 @@ const projects = [
                     en: "Crystal cluster in a dark cave",
                     ja: "暗い洞窟の結晶クラスター"
                 }
+            },
+            {
+                src: "assets/images/modeling/crystal-cluster-studio-viewport.png",
+
+                caption: {
+                    zh: "水晶面展示",
+                    en: "Crystal",
+                    ja: "ファンタジーゲームの鉱石"
+                }
             }
         ],
 
@@ -662,8 +671,8 @@ const projects = [
         featured: false,
 
         title: {
-            zh: "玻璃杯電繪",
-            en: "Digital Still Life Study",
+            zh: "電繪合集",
+            en: "Collection",
             ja: "デジタル静物画"
         },
 
@@ -682,7 +691,17 @@ const projects = [
 
         image: "assets/images/artwork/digital-still-life.png",
 
-        gallery: [],
+        gallery: [
+            {
+                src: "assets/images/artwork/bread.png",
+
+                caption: {
+                    zh: "物品電繪",
+                    en: "bread",
+                    ja: ""
+                }
+            }
+        ],
 
         highlights: {
             zh: [

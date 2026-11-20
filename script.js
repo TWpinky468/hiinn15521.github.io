@@ -116,34 +116,43 @@ const skills = [
     {
         id: "unity",
         name: "Unity & C#",
-        category: "Game Development",
+        category: "Game Development / Gameplay Programming",
 
         details: {
             zh: [
-                "使用 C# 開發遊戲玩法與互動系統",
-                "角色移動、戰鬥、技能與敵人 AI",
-                "NavMesh 尋路、巡邏與追蹤",
-                "UI、血量、背包概念與遊戲狀態管理",
-                "存檔系統、場景切換與遊戲流程",
-                "AudioMixer 音效與音量控制"
+                "2D 遊戲開發：Tilemap、Tile Palette、場景配置與碰撞設定",
+                "角色控制：移動、跑步、衝刺、跳躍與角色動畫",
+                "戰鬥系統：近戰攻擊、攻擊範圍判定、傷害計算與血量管理",
+                "AI 與 NPC：敵人巡邏追蹤、NavMesh 尋路、NPC 移動與對話互動",
+                "UI 系統：主選單、暫停選單、血條、商店、任務提示與結算畫面",
+                "遊戲系統：金錢、飢餓值、道具、顧客訂單與時間管理",
+                "資料管理：遊戲存檔、讀檔、場景切換與傳送系統",
+                "音效與動畫：Animator、AudioMixer、環境音效與互動音效",
+                "除錯與整合：功能測試、遊戲流程整合與問題修正"
             ],
 
             en: [
-                "Gameplay and interaction programming with C#",
-                "Character movement, combat, abilities, and enemy AI",
-                "NavMesh pathfinding, patrol, and pursuit",
-                "UI, health systems, and game state management",
-                "Save systems, scene transitions, and game flow",
-                "AudioMixer and audio management"
+                "2D Development: Tilemap, Tile Palette, level layout, and collision setup",
+                "Character Control: Movement, running, dashing, jumping, and animation",
+                "Combat Systems: Melee attacks, hit detection, damage calculation, and health management",
+                "AI & NPC: Enemy patrol and pursuit, NavMesh pathfinding, NPC movement, and dialogue interactions",
+                "UI Systems: Main menu, pause menu, health bars, shops, quest prompts, and result screens",
+                "Gameplay Systems: Currency, hunger, items, customer orders, and time management",
+                "Data Management: Save/load systems, scene transitions, and teleportation",
+                "Audio & Animation: Animator, AudioMixer, ambient sounds, and interaction audio",
+                "Debugging & Integration: Gameplay testing, system integration, and troubleshooting"
             ],
 
             ja: [
-                "C#によるゲームプレイ・インタラクションの実装",
-                "キャラクター操作、戦闘、スキル、敵AI",
-                "NavMeshによる経路探索、巡回、追跡",
-                "UI、体力システム、ゲーム状態管理",
-                "セーブ機能、シーン遷移、ゲーム進行管理",
-                "AudioMixerによるサウンド管理"
+                "2Dゲーム開発：Tilemap、Tile Palette、レベル配置、当たり判定設定",
+                "キャラクター操作：移動、ダッシュ、ジャンプ、アニメーション",
+                "戦闘システム：近接攻撃、攻撃範囲判定、ダメージ計算、HP管理",
+                "AI・NPC：敵の巡回・追跡、NavMesh経路探索、NPC移動、会話システム",
+                "UIシステム：メインメニュー、ポーズ画面、HPバー、ショップ、クエスト表示、リザルト画面",
+                "ゲームシステム：通貨、空腹度、アイテム、注文管理、時間管理",
+                "データ管理：セーブ・ロード、シーン遷移、テレポート機能",
+                "サウンド・アニメーション：Animator、AudioMixer、環境音、インタラクション音",
+                "デバッグ・統合：動作テスト、システム統合、不具合修正"
             ]
         }
     },
