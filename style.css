@@ -850,3 +850,298 @@ body {
         transition: none;
     }
 }
+/* ==========================================
+   Expandable Skill Cards
+   ========================================== */
+
+.skills-intro {
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 36px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.skill-card {
+    min-width: 0;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.skill-card:hover {
+    border-color: #718093;
+}
+
+.skill-card[open] {
+    border-color: #8ba3bb;
+    background: #1c2127;
+}
+
+.skill-summary {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 26px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.skill-summary::-webkit-details-marker {
+    display: none;
+}
+
+.skill-summary::marker {
+    content: "";
+}
+
+.skill-summary:focus-visible {
+    outline: 2px solid #a5c7e7;
+    outline-offset: -4px;
+}
+
+.skill-number {
+    font-size: 12px;
+    color: #8498ad;
+    letter-spacing: 2px;
+}
+
+.skill-heading {
+    flex: 1;
+}
+
+.skill-heading h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    color: #f0f0f0;
+}
+
+.skill-heading p {
+    margin: 0;
+    color: #95a8bc;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.skill-toggle {
+    font-size: 26px;
+    font-weight: 300;
+    color: #a9bfd5;
+    transition: transform 0.3s ease;
+}
+
+.skill-card[open] .skill-toggle {
+    transform: rotate(45deg);
+}
+
+.skill-details {
+    padding: 0 26px 26px 65px;
+    animation: skillFadeIn 0.35s ease both;
+}
+
+.skill-details ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.skill-details li {
+    color: #afc0d0;
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 8px;
+}
+
+.skill-details li::marker {
+    color: #7e9dbd;
+}
+
+@keyframes skillFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   Skills Navigation
+   ========================================== */
+
+.skills-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.skill-nav-button {
+    appearance: none;
+    border: none;
+    background: transparent;
+
+    color: #aab6c3;
+
+    font-family: inherit;
+    font-size: 16px;
+
+    padding: 8px 5px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease;
+}
+
+.skill-nav-button:hover {
+    color: white;
+}
+
+.skill-nav-button.active {
+    color: white;
+    background: #252c35;
+    border-radius: 4px;
+}
+
+.skill-nav-button:focus-visible {
+    outline: 2px solid #a5c7e7;
+    outline-offset: 2px;
+}
+
+.skill-separator {
+    color: #718093;
+    user-select: none;
+}
+
+
+/* ==========================================
+   Skill Detail Panel
+   ========================================== */
+
+.skills-detail-container {
+    width: 100%;
+}
+
+.skill-detail-panel {
+    max-width: 850px;
+
+    padding: 40px;
+
+    border: 1px solid #4d5965;
+    border-radius: 16px;
+
+    background: #15191e;
+
+    animation: skillPanelEnter 0.5s ease both;
+}
+
+.skill-detail-header {
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid #323a43;
+}
+
+.skill-detail-header h3 {
+    margin: 0 0 12px;
+
+    font-size: 32px;
+    font-weight: 600;
+
+    color: white;
+}
+
+.skill-detail-category {
+    margin: 0;
+
+    font-size: 14px;
+    letter-spacing: 1px;
+
+    color: #91a8bf;
+}
+
+.skill-detail-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.skill-detail-list li {
+    margin-bottom: 16px;
+
+    font-size: 16px;
+    line-height: 1.8;
+
+    color: #b8c6d5;
+}
+
+.skill-detail-list li::marker {
+    color: #8cabc9;
+}
+
+
+/* ==========================================
+   Panel Animation
+   ========================================== */
+
+@keyframes skillPanelEnter {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ==========================================
+   Mobile Layout
+   ========================================== */
+
+@media (max-width: 768px) {
+
+    .skill-nav-button {
+        font-size: 14px;
+    }
+
+    .skill-detail-panel {
+        padding: 25px;
+        border-radius: 12px;
+    }
+
+    .skill-detail-header h3 {
+        font-size: 25px;
+    }
+
+    .skill-detail-list li {
+        font-size: 14px;
+    }
+
+}
+
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .skill-detail-panel {
+        animation: none;
+    }
+
+}

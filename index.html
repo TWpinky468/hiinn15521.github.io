@@ -71,7 +71,10 @@
                 <button type="button" class="filter-btn" data-filter="game" data-i18n="filterGame">
                     遊戲開發
                 </button>
-
+                <button type="button" class="filter-btn" data-filter="game-design" data-i18n="filterGameDesign">
+                    遊戲企劃
+                </button>
+                
                 <button type="button" class="filter-btn" data-filter="props" data-i18n="filterProps">
                     3D 建模
                 </button>
@@ -102,12 +105,17 @@
         </section>
 
         <section id="skills" class="section">
+
             <p class="section-number">03 / SKILLS</p>
+
             <h2 data-i18n="skillsTitle">專業技能</h2>
-            <p class="content">
-                Unity · C# · Blender · Maya · ZBrush ·
-                Substance Painter · Photoshop
-            </p>
+
+            <!-- Software Navigation -->
+            <div id="skills-navigation" class="skills-navigation"></div>
+
+            <!-- Selected Skill Details -->
+            <div id="skills-container" class="skills-detail-container"></div>
+
         </section>
 
         <section id="contact" class="section">

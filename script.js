@@ -23,11 +23,13 @@ const translations = {
         filterAnimation: "動畫",
         filterDrawing: "2D 美術",
         filterModelcraft: "模型製作",
+        filterGameDesign: "遊戲企劃",
         emptyProjects: "這個分類的作品正在整理中，之後會陸續更新。",
         viewProject: "查看專案",
         viewCollection: "瀏覽集錦",
 
         skillsTitle: "專業技能",
+        skillsIntro: "點選下方技能卡片，了解我的軟體使用經驗與製作能力。",
         contactTitle: "聯絡我",
         contactText: "歡迎與我交流遊戲開發、3D 藝術及合作機會。"
     },
@@ -55,11 +57,13 @@ const translations = {
         filterAnimation: "Animation",
         filterDrawing: "2D Art",
         filterModelcraft: "Model Making",
+        filterGameDesign: "Game Design",
         emptyProjects: "More work in this category is coming soon.",
         viewProject: "View project",
         viewCollection: "View collection",
 
         skillsTitle: "Technical Skills",
+        skillsIntro: "Select a skill to explore my tools, workflows, and practical experience.",
         contactTitle: "Contact",
         contactText: "Feel free to reach out about game development, 3D art, or collaboration opportunities."
     },
@@ -87,11 +91,13 @@ const translations = {
         filterAnimation: "アニメーション",
         filterDrawing: "2Dアート",
         filterModelcraft: "模型製作",
+        filterGameDesign: "ゲーム企画",
         emptyProjects: "このカテゴリーの作品は準備中です。",
         viewProject: "作品を見る",
         viewCollection: "作品集を見る",
 
         skillsTitle: "技術スキル",
+        skillsIntro: "各スキルを選択すると、使用ツールや制作経験の詳細をご覧いただけます。",
         contactTitle: "お問い合わせ",
         contactText: "ゲーム開発、3Dアート、共同制作について、お気軽にご連絡ください。"
     }
@@ -101,6 +107,325 @@ const translations = {
 // ==========================================
 // Language Settings
 // ==========================================
+
+// ==========================================
+// Skill Data
+// ==========================================
+
+const skills = [
+    {
+        id: "unity",
+        name: "Unity & C#",
+        category: "Game Development",
+
+        details: {
+            zh: [
+                "使用 C# 開發遊戲玩法與互動系統",
+                "角色移動、戰鬥、技能與敵人 AI",
+                "NavMesh 尋路、巡邏與追蹤",
+                "UI、血量、背包概念與遊戲狀態管理",
+                "存檔系統、場景切換與遊戲流程",
+                "AudioMixer 音效與音量控制"
+            ],
+
+            en: [
+                "Gameplay and interaction programming with C#",
+                "Character movement, combat, abilities, and enemy AI",
+                "NavMesh pathfinding, patrol, and pursuit",
+                "UI, health systems, and game state management",
+                "Save systems, scene transitions, and game flow",
+                "AudioMixer and audio management"
+            ],
+
+            ja: [
+                "C#によるゲームプレイ・インタラクションの実装",
+                "キャラクター操作、戦闘、スキル、敵AI",
+                "NavMeshによる経路探索、巡回、追跡",
+                "UI、体力システム、ゲーム状態管理",
+                "セーブ機能、シーン遷移、ゲーム進行管理",
+                "AudioMixerによるサウンド管理"
+            ]
+        }
+    },
+
+    {
+        id: "blender",
+        name: "Blender",
+        category: "3D Modeling / Rigging / Animation",
+
+        details: {
+            zh: [
+                "3D 道具、建築與場景建模",
+                "UV 展開、接縫規劃與貼圖配置",
+                "Shader Nodes 材質節點製作",
+                "角色骨架、IK 控制與權重繪製",
+                "角色動作與戰鬥動畫",
+                "燈光配置、攝影機構圖與渲染"
+            ],
+
+            en: [
+                "3D prop, architecture, and environment modeling",
+                "UV unwrapping, seams, and texture layout",
+                "Material creation with Shader Nodes",
+                "Character rigging, IK controls, and weight painting",
+                "Character and combat animation",
+                "Lighting, camera composition, and rendering"
+            ],
+
+            ja: [
+                "3Dプロップ、建築、背景モデリング",
+                "UV展開、シーム設定、テクスチャ配置",
+                "Shader Nodesを使用したマテリアル制作",
+                "リギング、IK制御、ウェイトペイント",
+                "キャラクター・戦闘アニメーション",
+                "ライティング、カメラ構図、レンダリング"
+            ]
+        }
+    },
+
+    {
+        id: "zbrush",
+        name: "ZBrush",
+        category: "Digital Sculpting",
+
+        details: {
+            zh: [
+                "角色與生物的數位雕刻",
+                "高模形體與細節製作",
+                "使用雕刻筆刷調整表面結構",
+                "角色造型與立體形態研究"
+            ],
+
+            en: [
+                "Character and creature digital sculpting",
+                "High-resolution forms and surface details",
+                "Surface refinement with sculpting brushes",
+                "Character forms and anatomical studies"
+            ],
+
+            ja: [
+                "キャラクター・クリーチャーのデジタルスカルプト",
+                "ハイポリモデルの形状・ディテール制作",
+                "スカルプトブラシによる表面調整",
+                "キャラクター造形と立体形状の研究"
+            ]
+        }
+    },
+
+    {
+        id: "substance",
+        name: "Substance 3D Painter",
+        category: "PBR Texturing",
+
+        details: {
+            zh: [
+                "PBR 材質與紋理繪製",
+                "金屬、粗糙度與表面質感表現",
+                "遮罩、圖層與材質分層",
+                "磨損、髒污與舊化效果"
+            ],
+
+            en: [
+                "PBR material and texture painting",
+                "Metallic, roughness, and surface properties",
+                "Masks, layers, and material organization",
+                "Wear, dirt, and weathering effects"
+            ],
+
+            ja: [
+                "PBRマテリアル・テクスチャ制作",
+                "金属感、粗さ、表面質感の表現",
+                "マスク、レイヤー、マテリアル管理",
+                "摩耗、汚れ、ウェザリング表現"
+            ]
+        }
+    },
+
+    {
+        id: "photoshop",
+        name: "Adobe Photoshop",
+        category: "Digital Painting / Post-Processing",
+
+        details: {
+            zh: [
+                "數位繪畫、厚塗與插畫創作",
+                "筆刷、圖層與遮色片運用",
+                "照片合成、修圖與視覺設計",
+                "光影、色彩校正與作品後製"
+            ],
+
+            en: [
+                "Digital painting, painterly rendering, and illustration",
+                "Brushes, layers, and masking techniques",
+                "Photo compositing, retouching, and visual design",
+                "Lighting adjustments, color grading, and post-processing"
+            ],
+
+            ja: [
+                "デジタルペイント、厚塗り、イラスト制作",
+                "ブラシ、レイヤー、マスクの活用",
+                "画像合成、レタッチ、ビジュアルデザイン",
+                "光と影の調整、色補正、画像加工"
+            ]
+        }
+    },
+
+    {
+        id: "marvelous",
+        name: "Marvelous Designer",
+        category: "3D Clothing Simulation",
+
+        details: {
+            zh: [
+                "2D 紙樣繪製與服裝打版",
+                "布料縫合、模擬與版型調整",
+                "多層服裝與服裝細節製作",
+                "布料材質、花紋與貼圖配置"
+            ],
+
+            en: [
+                "2D pattern drafting and garment construction",
+                "Fabric sewing, simulation, and fitting",
+                "Layered garments and clothing details",
+                "Fabric materials, patterns, and texture placement"
+            ],
+
+            ja: [
+                "2Dパターン作成と衣服の設計",
+                "縫製、クロスシミュレーション、フィッティング",
+                "重ね着構造と衣装ディテール制作",
+                "布素材、柄、テクスチャ配置"
+            ]
+        }
+    },
+
+    {
+        id: "maya",
+        name: "Autodesk Maya",
+        category: "3D Modeling",
+
+        details: {
+            zh: [
+                "基礎多邊形建模與物件編輯",
+                "3D 模型結構與場景整理"
+            ],
+
+            en: [
+                "Basic polygon modeling and object editing",
+                "3D model structure and scene organization"
+            ],
+
+            ja: [
+                "基本的なポリゴンモデリングとオブジェクト編集",
+                "3Dモデル構造とシーン整理"
+            ]
+        }
+    },
+    // ==========================================
+    // GIMP
+    // ==========================================
+
+    {
+        id: "gimp",
+        name: "GIMP",
+        category: "Pixel Art / GIF Animation",
+
+        details: {
+            zh: [
+                "像素美術與 Pixel Art 創作",
+                "GIF 動畫製作與影格編輯",
+                "逐格動畫與動態圖像設計",
+                "圖層管理、影像編輯與素材製作"
+            ],
+
+            en: [
+                "Pixel art creation and editing",
+                "GIF animation and frame editing",
+                "Frame-by-frame animation and animated graphics",
+                "Layer management, image editing, and asset creation"
+            ],
+
+            ja: [
+                "ピクセルアートの制作・編集",
+                "GIFアニメーションとフレーム編集",
+                "コマ撮りアニメーションと動く画像の制作",
+                "レイヤー管理、画像編集、素材制作"
+            ]
+        }
+    },
+
+    // ==========================================
+    // KeyShot
+    // ==========================================
+
+    {
+        id: "keyshot",
+        name: "KeyShot",
+        category: "3D Rendering / Presentation",
+
+        details: {
+            zh: [
+                "3D 角色與模型展示渲染",
+                "材質、表面質感與顏色調整",
+                "燈光配置與展示環境設定",
+                "攝影機角度、構圖與渲染輸出"
+            ],
+
+            en: [
+                "3D character and model presentation rendering",
+                "Material, surface, and color adjustments",
+                "Lighting setups and presentation environments",
+                "Camera angles, composition, and rendering"
+            ],
+
+            ja: [
+                "3Dキャラクター・モデルの展示レンダリング",
+                "マテリアル、表面質感、カラー調整",
+                "ライティングと展示環境の設定",
+                "カメラアングル、構図、レンダリング出力"
+            ]
+        }
+    },
+
+    // ==========================================
+    // After Effects & Premiere Pro
+    // ==========================================
+
+    {
+        id: "adobe-video",
+        name: "After Effects / Premiere Pro",
+        category: "VFX / Motion Graphics / Video Editing",
+
+        details: {
+            zh: [
+                "After Effects 動態圖形與視覺特效製作",
+                "3D 作品展示影片的特效與後製",
+                "影像合成、轉場與動畫效果",
+                "Premiere Pro 影片剪輯與鏡頭編排",
+                "音訊、畫面節奏與色彩調整",
+                "影片輸出與展示作品製作"
+            ],
+
+            en: [
+                "Motion graphics and visual effects with After Effects",
+                "Effects and post-production for 3D showcase videos",
+                "Compositing, transitions, and animation effects",
+                "Video editing and sequencing with Premiere Pro",
+                "Audio, pacing, and color adjustments",
+                "Video export and portfolio presentation"
+            ],
+
+            ja: [
+                "After Effectsによるモーショングラフィックス・VFX制作",
+                "3D作品紹介動画のエフェクト・ポストプロダクション",
+                "映像合成、トランジション、アニメーション効果",
+                "Premiere Proによる映像編集・カット構成",
+                "音声、映像テンポ、カラー調整",
+                "動画書き出しとポートフォリオ映像制作"
+            ]
+        }
+    }
+];
 
 const languageButtons = document.querySelectorAll("[data-lang]");
 const translatedElements = document.querySelectorAll("[data-i18n]");
@@ -167,9 +492,136 @@ function setLanguage(language) {
         // Continue without local storage.
     }
 
-    // Refresh project cards
+    // Refresh project cards and skill cards
 
     renderProjects();
+    renderSkills();
+}
+// ==========================================
+// Render Skill Cards
+// ==========================================
+
+// ==========================================
+// Skills Navigation
+// ==========================================
+
+let selectedSkillId = "unity";
+
+function renderSkills() {
+
+    const navigation = document.getElementById("skills-navigation");
+    const container = document.getElementById("skills-container");
+
+    if (!navigation || !container) {
+        return;
+    }
+
+    navigation.replaceChildren();
+    container.replaceChildren();
+
+    // Create software navigation
+
+    skills.forEach((skill, index) => {
+
+        const button = document.createElement("button");
+
+        button.type = "button";
+        button.className = "skill-nav-button";
+
+        button.textContent = skill.name;
+
+        button.classList.toggle(
+            "active",
+            selectedSkillId === skill.id
+        );
+
+        button.setAttribute(
+            "aria-pressed",
+            String(selectedSkillId === skill.id)
+        );
+
+        button.addEventListener("click", () => {
+
+            if (selectedSkillId === skill.id) {
+                selectedSkillId = null;
+            } else {
+                selectedSkillId = skill.id;
+            }
+
+            renderSkills();
+
+        });
+
+        navigation.appendChild(button);
+
+        // Separator
+
+        if (index < skills.length - 1) {
+
+            const separator = document.createElement("span");
+
+            separator.className = "skill-separator";
+            separator.textContent = "·";
+
+            navigation.appendChild(separator);
+        }
+
+    });
+
+    // Do not show details if nothing is selected
+
+    if (!selectedSkillId) {
+        return;
+    }
+
+    const selectedSkill = skills.find(
+        skill => skill.id === selectedSkillId
+    );
+
+    if (!selectedSkill) {
+        return;
+    }
+
+    // Create detail panel
+
+    const panel = document.createElement("div");
+    panel.className = "skill-detail-panel";
+
+    const header = document.createElement("div");
+    header.className = "skill-detail-header";
+
+    const title = document.createElement("h3");
+    title.textContent = selectedSkill.name;
+
+    const category = document.createElement("p");
+    category.className = "skill-detail-category";
+    category.textContent = selectedSkill.category;
+
+    header.append(title, category);
+
+    // Skill details
+
+    const list = document.createElement("ul");
+    list.className = "skill-detail-list";
+
+    const details =
+        selectedSkill.details[currentLanguage] ||
+        selectedSkill.details.en;
+
+    details.forEach(detail => {
+
+        const item = document.createElement("li");
+
+        item.textContent = detail;
+
+        list.appendChild(item);
+
+    });
+
+    panel.append(header, list);
+
+    container.appendChild(panel);
+
 }
 
 
@@ -469,7 +921,7 @@ function initializeScrollReveal() {
         subtree: true
     });
 
-        registerRevealElements();
+    registerRevealElements();
 }
 
 if (document.readyState === "loading") {
